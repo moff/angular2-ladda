@@ -13,8 +13,7 @@
   "files": [
     "typings/index.d.ts",
     "./app/main.ts",
-    "./module/module.ts",
-    "./index.ts"
+    "./module/module.ts"
   ],
   "exclude": [
     "node_modules",
