@@ -1,0 +1,30 @@
+nbproject
+manifest.mf
+build.xml
+node_modules
+typings
+npm-debug.log
+coverage
+*.js
+!system.config.js
+!karma.conf.js
+!karma-test-shim.js
+*.map
+*.d.ts
+!make.js
+!bundles/*.js
+
+# JetBrains
+.idea
+.project
+.settings
+.idea/*
+*.iml
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+**/.DS_Store
+.DS_Store
