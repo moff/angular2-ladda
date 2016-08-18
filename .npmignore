@@ -1,0 +1,34 @@
+# Node generated files
+node_modules
+npm-debug.log
+
+# OS generated files
+Thumbs.db
+.DS_Store
+**/.DS_Store
+Desktop.ini
+
+# Ignored files
+*.ts
+!*.d.ts
+typings
+typings.json
+tsconfig.json
+tsconfig.publish.json
+styles.css
+systemjs.config.js
+index.html
+compiled
+.npmignore
+
+# JetBrains
+.idea
+.project
+.settings
+.idea/*
+*.iml
+
+# Other
+nbproject
+manifest.mf
+build.xml
