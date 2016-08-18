@@ -8,16 +8,17 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "outDir": "./compiled"
+    "declaration": true
   },
   "files": [
     "typings/index.d.ts",
-    "./app/main.ts",
     "./module/module.ts",
     "./index.ts"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "app",
+    "compiled",
+    "dist",
+    "node_modules"
   ]
 }
