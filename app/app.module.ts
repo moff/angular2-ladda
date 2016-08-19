@@ -6,7 +6,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { YourAwesomeModule } from '../module/module';
+import { LaddaModule } from '../module/module';
 
 @NgModule({
     imports: [
@@ -14,7 +14,7 @@ import { YourAwesomeModule } from '../module/module';
         FormsModule,
         HttpModule,
         routing,
-        YourAwesomeModule
+        LaddaModule
     ],
     providers: [
         appRoutingProviders
@@ -25,4 +25,4 @@ import { YourAwesomeModule } from '../module/module';
     ],
     bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}
