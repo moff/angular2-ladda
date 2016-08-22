@@ -6,7 +6,7 @@ typings
 npm-debug.log
 coverage
 *.js
-!system.config.js
+!systemjs.config.js
 !karma.conf.js
 !karma-test-shim.js
 *.map
