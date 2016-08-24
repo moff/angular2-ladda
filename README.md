@@ -71,6 +71,11 @@ Add `[ladda]='isLoading'` to a button tag in template, e.g.:
 
 In component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner.
 
+Also buttons accept the following attributes:
+
+- data-style: one of the button styles, full list in [demo](http://lab.hakim.se/ladda/)
+- data-spinner-size: 40, pixel dimensions of spinner, defaults to dynamic size based on the button height
+- data-spinner-color: A hex code or any named CSS color.
 
 ## License
 
