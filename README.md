@@ -109,6 +109,10 @@ Also buttons accept the following attributes:
 - data-spinner-size: 40, pixel dimensions of spinner, defaults to dynamic size based on the button height
 - data-spinner-color: A hex code or any named CSS color.
 
+## Feedback
+
+Please [leave your feedback](https://github.com/moff/angular2-ladda/issues) if you have noticed any issues or have a feature request.
+
 ## License
 
 The repository code is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
