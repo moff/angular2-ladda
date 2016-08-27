@@ -14,7 +14,17 @@ This is Angular 2 module that implements [Ladda](https://github.com/hakimel/Ladd
 ## Installation
 
 - run `npm install angular2-ladda --save`
-- link Ladda's stylesheets to your document - you can find it in /node_modules/ladda/
+
+- link Ladda's stylesheets to your document - you can find it in /node_modules/ladda/, e.g. add this in your html-document:
+
+```
+<link rel="stylesheet" href="node_modules/ladda/dist/ladda.min.css">
+```
+or import it in app.scss, e.g.:
+```
+@import "node_modules/ladda/css/ladda";
+```
+
 - import `LaddaModule` in your app's main module `app.module.ts`, e.g.:
 
 ```
@@ -69,7 +79,29 @@ Add `[ladda]='isLoading'` to a button tag in template, e.g.:
 <button [ladda]='isLoading' (click)='saveEmployee()' type="submit" class="btn btn-success">Save</button>
 ```
 
-In component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner.
+In component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner, e.g.:
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+    template: `
+        <h1>Home Component</h1>
+        <button (click)='toggleLoading()'>Toggle Ladda in button below</button>
+        <hr>
+        <button [ladda]='isLoading' type="submit" class="btn btn-success">Save</button>
+    `
+})
+export class HomeComponent {
+    
+    // trigger-variable for Ladda
+    isLoading: boolean = false;
+    
+    toggleLoading() {
+        this.isLoading = !this.isLoading;
+    }
+}
+```
 
 Also buttons accept the following attributes:
 
