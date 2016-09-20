@@ -1,6 +1,6 @@
-import { NgModule }                from '@angular/core';
-import { CommonModule }            from '@angular/common';
-import { LaddaDirective }          from './ladda.directive';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule }                  from '@angular/common';
+import { LaddaDirective }                from './ladda.directive';
 
 @NgModule({
     imports:      [ CommonModule ],
