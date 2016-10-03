@@ -32,12 +32,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     ngOnChanges(changes: SimpleChanges) {
         if (this._ladda) {
             if (changes['loading'] && changes['loading'].currentValue != changes['loading'].previousValue) {
-                if (this.loading) {
-                    this._ladda.start();
-                    return;
-                }
-
-                this._ladda.stop();
+                this.toggleLadda();
             }
         }
     }
@@ -46,9 +41,19 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
         this.el.className += ' ladda-button';
         let Ladda = require('ladda');
         this._ladda = Ladda.create(this.el);
+        this.toggleLadda();
     }
 
     ngOnDestroy() {
         this._ladda.remove();
+    }
+    
+    toggleLadda() {
+        if (this.loading) {
+            this._ladda.start();
+            return;
+        }
+
+        this._ladda.stop();
     }
 }
