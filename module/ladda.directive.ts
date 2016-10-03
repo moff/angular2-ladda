@@ -1,10 +1,10 @@
-import { Directive, ElementRef, Input, OnInit, DoCheck, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, DoCheck, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 
 @Directive({
     selector: '[ladda]'
 })
-export class LaddaDirective implements OnInit, OnDestroy, DoCheck {
-    
+export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
+
     private el: HTMLElement;
     private _dataStyle: string;
     private _dataSpinnerSize: string;
@@ -28,22 +28,26 @@ export class LaddaDirective implements OnInit, OnDestroy, DoCheck {
     constructor(el: ElementRef) {
         this.el = el.nativeElement;
     }
-    
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (this._ladda) {
+            if (changes['loading'] && changes['loading'].currentValue != changes['loading'].previousValue) {
+                if (this.loading) {
+                    this._ladda.start();
+                    return;
+                }
+
+                this._ladda.stop();
+            }
+        }
+    }
+
     ngOnInit() {
         this.el.className += ' ladda-button';
         let Ladda = require('ladda');
         this._ladda = Ladda.create(this.el);
     }
-    
-    ngDoCheck() {
-        if (this.loading) {
-            this._ladda.start();
-            return;
-        }
-        
-        this._ladda.stop();
-    }
-    
+
     ngOnDestroy() {
         this._ladda.remove();
     }
