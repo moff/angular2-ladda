@@ -15,11 +15,7 @@ import { LADDA_STYLE } from '../module/laddaStyle';
         FormsModule,
         HttpModule,
         routing,
-        LaddaModule
-    ],
-    providers: [
-        appRoutingProviders,
-        {
+        LaddaModule.forRoot({
             provide: LADDA_STYLE,
             useValue: {
                 style: "contract",
@@ -27,7 +23,10 @@ import { LADDA_STYLE } from '../module/laddaStyle';
                 // spinnerColor: "lime",
                 // spinnerLines: 30
             }
-        }
+        })
+    ],
+    providers: [
+        appRoutingProviders
     ],
     declarations: [
         AppComponent,

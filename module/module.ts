@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ValueProvider, ModuleWithProviders } from '@angular/core';
 import { CommonModule }                  from '@angular/common';
 import { LaddaDirective }                from './ladda.directive';
 
@@ -8,4 +8,12 @@ import { LaddaDirective }                from './ladda.directive';
     exports:      [ LaddaDirective ],
     providers:    []
 })
-export class LaddaModule {}
+export class LaddaModule {
+
+    public static forRoot(defaultStyleProvider: ValueProvider): ModuleWithProviders {
+        return {
+            ngModule: LaddaModule,
+            providers: [defaultStyleProvider]
+        }
+    } 
+}
