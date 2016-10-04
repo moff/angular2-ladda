@@ -6,7 +6,8 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { LaddaModule, LADDA_STYLE } from '../module/module';
+import { LaddaModule } from '../module/module';
+import { LADDA_STYLE } from '../module/laddaStyle';
 
 @NgModule({
     imports: [
