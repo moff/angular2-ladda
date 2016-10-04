@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { LaddaModule } from '../module/module';
+import { LADDA_STYLE } from '../module/laddaStyle';
 
 @NgModule({
     imports: [
@@ -14,7 +15,15 @@ import { LaddaModule } from '../module/module';
         FormsModule,
         HttpModule,
         routing,
-        LaddaModule
+        LaddaModule.forRoot({
+            provide: LADDA_STYLE,
+            useValue: {
+                style: "contract",
+                // spinnerSize: 40,
+                // spinnerColor: "lime",
+                // spinnerLines: 30
+            }
+        })
     ],
     providers: [
         appRoutingProviders
