@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
         <p>Home Component</p>
         <button (click)='toggleLoad()'>Toggle</button>
         <hr>
-        <button [ladda]="loading" class="ladda-button" data-style="zoom-in">Click me</button>
+        <button [ladda]="loading" class="ladda-button" data-style="zoom-in" data-spinner-size="30" data-spinner-color="red" data-spinner-lines="10">Click me</button>
+        <button [ladda]="loading" class="ladda-button">Click me</button>
     `
 })
 export class HomeComponent {
