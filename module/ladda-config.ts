@@ -1,10 +1,10 @@
 import { OpaqueToken } from "@angular/core";
 
-export interface LaddaStyle {
+export interface LaddaConfig {
     style?: string;
     spinnerSize?: number;
     spinnerColor?: string;
     spinnerLines?: number;
 }
 
-export const LADDA_STYLE = new OpaqueToken('ladda_style');
+export const LADDA_CONFIG = new OpaqueToken('ladda.config');
