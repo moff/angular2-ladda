@@ -44,6 +44,30 @@ import { LaddaModule } from 'angular2-ladda';
 
 ```
 
+Also you can configure Ladda defaults, e.g.:
+
+```
+// other imports
+// ...
+import { LaddaModule } from 'angular2-ladda';
+// ...
+
+@NgModule({
+    imports: [
+        // other imports
+        // ...
+        LaddaModule.forRoot({
+            style: "contract",
+            spinnerSize: 40,
+            spinnerColor: "red",
+            spinnerLines: 12
+        }),
+        // ...
+    ]
+})
+
+```
+
 That should be enough if you use Webpack to bundle JavaScript.
 
 Otherwise you'll have to edit `systemjs.config.js` to set correct path, e.g.:
@@ -76,7 +100,7 @@ var packages = {
 Add `[ladda]='isLoading'` to a button tag in template, e.g.:
 
 ```
-<button [ladda]='isLoading' (click)='saveEmployee()' type="submit" class="btn btn-success">Save</button>
+<button [ladda]='isLoading' class="btn btn-success">Save</button>
 ```
 
 In component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner, e.g.:
@@ -107,7 +131,8 @@ Also buttons accept the following attributes:
 
 - data-style: one of the button styles, full list in [demo](http://lab.hakim.se/ladda/)
 - data-spinner-size: 40, pixel dimensions of spinner, defaults to dynamic size based on the button height
-- data-spinner-color: A hex code or any named CSS color.
+- data-spinner-color: hex code or any named CSS color
+- data-spinner-lines: the number of lines for the spinner, defaults to 12
 
 ## Feedback
 
