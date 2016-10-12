@@ -17,6 +17,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     private _ladda;
     
     @Input('ladda') loading: boolean;
+    @Input('disabled') disabled: boolean;
 
     constructor(el: ElementRef, @Inject(LADDA_CONFIG) @Optional() private config: LaddaConfig) {
         this.el = el.nativeElement;
@@ -52,6 +53,10 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
             if (changes['loading'] && changes['loading'].currentValue != changes['loading'].previousValue) {
                 this.toggleLadda();
             }
+            
+            if (changes['disabled']) {
+                this.toggleDisabled();
+            }
         }
     }
 
@@ -72,5 +77,15 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
         }
 
         this._ladda.stop();
+        this.toggleDisabled();
+    }
+    
+    toggleDisabled() {
+        if (this.disabled) {
+            this.el.setAttribute('disabled', '');
+            return;
+        }
+        
+        this.el.removeAttribute('disabled');
     }
 }
