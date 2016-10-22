@@ -1,10 +1,9 @@
 import { NgModule, ValueProvider, ModuleWithProviders } from '@angular/core';
-import { CommonModule }                  from '@angular/common';
 import { LaddaDirective }                from './ladda.directive';
 import { LADDA_CONFIG }                  from './ladda-config';
 
 @NgModule({
-    imports:      [ CommonModule ],
+    imports:      [],
     declarations: [ LaddaDirective ],
     exports:      [ LaddaDirective ],
     providers:    []
