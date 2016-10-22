@@ -1,6 +1,6 @@
 {
   "name": "angular2-ladda",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Angular 2 module, implements Ladda",
   "main": "index.js",
   "scripts": {
@@ -21,9 +21,11 @@
   ],
   "author": "Paul Moff",
   "license": "MIT",
-  "peerDependencies": {
-    "@angular/core": "^2.0.0",
+  "dependencies": {
     "ladda": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@angular/core": "^2.0.0"
   },
   "devDependencies": {
     "@angular/common": "~2.1.0",
