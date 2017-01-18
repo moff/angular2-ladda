@@ -1,10 +1,15 @@
-import { OpaqueToken } from "@angular/core";
+import { Injectable } from "@angular/core";
 
-export interface LaddaConfig {
+export interface LaddaConfigArgs {
     style?: string;
     spinnerSize?: number;
     spinnerColor?: string;
     spinnerLines?: number;
 }
 
-export const LADDA_CONFIG = new OpaqueToken('ladda.config');
+@Injectable()
+export class LaddaConfig implements LaddaConfigArgs {
+    constructor(config: Object = {}) {
+        Object.assign(this, config);
+    }
+}

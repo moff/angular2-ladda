@@ -10,6 +10,8 @@ coverage
 !karma-test-shim.js
 *.map
 *.d.ts
+*.metadata.json
+/aot
 !make.js
 !bundles/*.js
 

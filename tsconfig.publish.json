@@ -13,5 +13,9 @@
   "files": [
     "./module/module.ts",
     "./index.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "aot",
+    "skipMetadataEmit": false
+  }
 }
