@@ -2,8 +2,9 @@ import { Directive, ElementRef, Input, OnInit, DoCheck, OnDestroy, OnChanges, Si
 import { LADDA_CONFIG, LaddaConfig } from "./ladda-config";
 
 function tryReadAttribute(element: HTMLElement, attrName: string, defaultVal: any = undefined) {
-    if (element.attributes[attrName]) {
-        return element.attributes[attrName].value;
+    let attr = element.attributes.getNamedItem(attrName);
+    if (attr) {
+        return attr.value;
     }
     return defaultVal;
 }
@@ -14,7 +15,7 @@ function tryReadAttribute(element: HTMLElement, attrName: string, defaultVal: an
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
 
     private el: HTMLElement;
-    private _ladda;
+    private _ladda: any;
     
     @Input('ladda') loading: boolean;
     @Input('disabled') disabled: boolean;

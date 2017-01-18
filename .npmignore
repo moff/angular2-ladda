@@ -11,8 +11,6 @@ Desktop.ini
 # Ignored files
 *.ts
 !*.d.ts
-typings
-typings.json
 tsconfig.json
 tsconfig.publish.json
 styles.css

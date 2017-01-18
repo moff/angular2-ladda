@@ -2,7 +2,6 @@ nbproject
 manifest.mf
 build.xml
 node_modules
-typings
 npm-debug.log
 coverage
 *.js
