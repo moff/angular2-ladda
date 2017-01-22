@@ -11,8 +11,7 @@
     "declaration": true
   },
   "files": [
-    "./module/module.ts",
-    "./index.ts"
+    "./module/module.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "aot",

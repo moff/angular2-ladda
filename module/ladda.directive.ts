@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
 import { LaddaConfig, LaddaConfigArgs, configAttributes } from "./ladda-config";
+import * as Ladda from 'ladda';
 
 @Directive({
     selector: '[ladda]'
@@ -7,8 +8,8 @@ import { LaddaConfig, LaddaConfigArgs, configAttributes } from "./ladda-config";
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
 
     private el: HTMLElement;
-    private _ladda: any;
-    
+    private _ladda: ILaddaButton;
+
     @Input('ladda') loading: boolean | number;
     @Input('disabled') disabled: boolean;
 
@@ -56,7 +57,6 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnInit() {
-        let Ladda = require('ladda');
         this._ladda = Ladda.create(this.el);
         this.toggleLadda();
     }
