@@ -9,7 +9,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     private el: HTMLElement;
     private _ladda: any;
     
-    @Input('ladda') loading: boolean;
+    @Input('ladda') loading: boolean | number;
     @Input('disabled') disabled: boolean;
 
     constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() private config: LaddaConfigArgs) {
@@ -37,8 +37,16 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         if (this._ladda) {
-            if (changes['loading'] && changes['loading'].currentValue != changes['loading'].previousValue) {
-                this.toggleLadda();
+            let loading = changes['loading'];
+
+            if (loading && loading.currentValue !== loading.previousValue) {
+                if (typeof loading.currentValue !== 'number' || typeof loading.previousValue !== 'number') {
+                    this.toggleLadda()
+                }
+
+                if (typeof loading.currentValue === 'number') {
+                    this._ladda.setProgress(loading.currentValue);
+                }
             }
             
             if (changes['disabled']) {
@@ -58,7 +66,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
     
     toggleLadda() {
-        if (this.loading) {
+        if (this.loading !== false) {
             this._ladda.start();
             return;
         }
