@@ -1,14 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
-import { LaddaConfig, LaddaConfigArgs } from "./ladda-config";
-
-function tryReadAttribute(element: HTMLElement, attrName: string): string {
-    let attr = element.attributes.getNamedItem(attrName);
-    if (attr) {
-        return attr.value;
-    }
-
-    return '';
-}
+import { LaddaConfig, LaddaConfigArgs, configAttributes } from "./ladda-config";
 
 @Directive({
     selector: '[ladda]'
@@ -24,28 +15,22 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() private config: LaddaConfigArgs) {
         this.el = el.nativeElement;
 
-        // Reading Ladda attributes from element
-        let dataStyle = tryReadAttribute(this.el, "data-style");
-        let dataSpinnerSize = parseInt(tryReadAttribute(this.el, "data-spinner-size"), 10);
-        let dataSpinnerLines = parseInt(tryReadAttribute(this.el, "data-spinner-lines"), 10);
-        let dataSpinnerColor = tryReadAttribute(this.el, "data-spinner-color");
+        if (!this.config) {
+            return;
+        }
 
-        // Applying default style if available
-        if (this.config) {
-            if (!dataStyle && this.config.style) {
-                this.el.setAttribute("data-style", this.config.style);
+        // apply default styles if they aren't overwritten by an attribute
+        for (let attribute in configAttributes) {
+            let configValue = this.config[configAttributes[attribute]];
+
+            if (!configValue) {
+                continue; // don't waste time reading the attribute
             }
-            
-            if (!dataSpinnerSize && this.config.spinnerSize) {
-                this.el.setAttribute("data-spinner-size", this.config.spinnerSize.toString(10));
-            }
-            
-            if (!dataSpinnerLines && this.config.spinnerLines) {
-                this.el.setAttribute("data-spinner-lines", this.config.spinnerLines.toString(10));
-            }
-            
-            if (!dataSpinnerColor && this.config.spinnerColor) {
-                this.el.setAttribute("data-spinner-color", this.config.spinnerColor);
+
+            if (!this.el.getAttribute(attribute)) {
+                // attribute isn't set - apply the default config value
+                let value = (typeof configValue === "number") ? configValue.toString() : configValue;
+                this.el.setAttribute(attribute, value);
             }
         }
     }
