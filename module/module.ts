@@ -1,6 +1,6 @@
-import { NgModule, ValueProvider, ModuleWithProviders } from '@angular/core';
-import { LaddaDirective }                from './ladda.directive';
-import { LADDA_CONFIG }                  from './ladda-config';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { LaddaDirective } from './ladda.directive';
+import { LaddaConfigArgs, LaddaConfig } from './ladda-config';
 
 @NgModule({
     imports:      [],
@@ -9,17 +9,12 @@ import { LADDA_CONFIG }                  from './ladda-config';
     providers:    []
 })
 export class LaddaModule {
-
-    public static forRoot(config: Object = {}): ModuleWithProviders {
-        
-        let defaultStyleProvider = {
-            provide: LADDA_CONFIG,
-            useValue: config
-        };
-        
+    public static forRoot(config?: LaddaConfigArgs): ModuleWithProviders {
         return {
             ngModule: LaddaModule,
-            providers: [defaultStyleProvider]
+            providers: [
+                { provide: LaddaConfig, useValue: config }
+            ]
         }
     } 
 }

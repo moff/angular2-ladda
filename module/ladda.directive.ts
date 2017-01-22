@@ -1,11 +1,13 @@
-import { Directive, ElementRef, Input, OnInit, DoCheck, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
-import { LADDA_CONFIG, LaddaConfig } from "./ladda-config";
+import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
+import { LaddaConfig, LaddaConfigArgs } from "./ladda-config";
 
-function tryReadAttribute(element: HTMLElement, attrName: string, defaultVal: any = undefined) {
-    if (element.attributes[attrName]) {
-        return element.attributes[attrName].value;
+function tryReadAttribute(element: HTMLElement, attrName: string): string {
+    let attr = element.attributes.getNamedItem(attrName);
+    if (attr) {
+        return attr.value;
     }
-    return defaultVal;
+
+    return '';
 }
 
 @Directive({
@@ -14,12 +16,12 @@ function tryReadAttribute(element: HTMLElement, attrName: string, defaultVal: an
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
 
     private el: HTMLElement;
-    private _ladda;
+    private _ladda: any;
     
     @Input('ladda') loading: boolean;
     @Input('disabled') disabled: boolean;
 
-    constructor(el: ElementRef, @Inject(LADDA_CONFIG) @Optional() private config: LaddaConfig) {
+    constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() private config: LaddaConfigArgs) {
         this.el = el.nativeElement;
 
         // Reading Ladda attributes from element
