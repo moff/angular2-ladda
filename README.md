@@ -97,10 +97,10 @@ var packages = {
 
 ## Usage
 
-Add `[ladda]='isLoading'` to a button tag in template, e.g.:
+Add `[ladda]="isLoading"` to a button tag in template, e.g.:
 
 ```
-<button [ladda]='isLoading' class="btn btn-success">Save</button>
+<button [ladda]="isLoading">Save</button>
 ```
 
 In component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner, e.g.:
@@ -111,9 +111,9 @@ import { Component } from '@angular/core';
 @Component({
     template: `
         <h1>Home Component</h1>
-        <button (click)='toggleLoading()'>Toggle Ladda in button below</button>
+        <button (click)="toggleLoading()">Toggle Ladda in button below</button>
         <hr>
-        <button [ladda]='isLoading' type="submit" class="btn btn-success">Save</button>
+        <button [ladda]="isLoading">Save</button>
     `
 })
 export class HomeComponent {
@@ -133,6 +133,42 @@ Also buttons accept the following attributes:
 - data-spinner-size: 40, pixel dimensions of spinner, defaults to dynamic size based on the button height
 - data-spinner-color: hex code or any named CSS color
 - data-spinner-lines: the number of lines for the spinner, defaults to 12
+
+### Progress
+
+Loading progress can be shown by setting the bound value to a number (between 0 and 1) rather than `true`.
+
+For example:
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+    template: `
+        <h1>Home Component</h1>
+        <button [ladda]="progress" (click)="startLoading()">Click to show progress</button>
+    `
+})
+export class HomeComponent {
+    progress: boolean | number = false;
+    
+    startLoading() {
+        this.progress = 0; // starts spinner
+
+        setTimeout(() => {
+            this.loading = 0.5; // sets progress bar to 50%
+
+            setTimeout(() => {
+                this.loading = 1; // sets progress bar to 100%
+
+                setTimeout(() => {
+                    this.loading = false; // stops spinner
+                }, 200);
+            }, 500);
+        }, 400);
+    }
+}
+```
 
 ## Feedback
 
