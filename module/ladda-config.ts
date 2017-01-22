@@ -1,7 +1,12 @@
 import { Injectable } from "@angular/core";
 
+export type laddaStyle =
+    "expand-left" | "expand-right" | "expand-up" | "expand-down" |
+    "contract" | "contract-overlay" | "zoom-in" | "zoom-out" |
+    "slide-left" | "slide-right" | "slide-up" | "slide-down";
+
 export interface LaddaConfigArgs {
-    style?: string;
+    style?: laddaStyle;
     spinnerSize?: number;
     spinnerColor?: string;
     spinnerLines?: number;
