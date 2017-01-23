@@ -5,7 +5,7 @@ export type laddaStyle =
     "contract" | "contract-overlay" | "zoom-in" | "zoom-out" |
     "slide-left" | "slide-right" | "slide-up" | "slide-down";
 
-export interface LaddaConfigArgs {
+export abstract class LaddaConfigArgs {
     style?: laddaStyle;
     spinnerSize?: number;
     spinnerColor?: string;
@@ -21,7 +21,7 @@ export let configAttributes: {[key: string]: keyof LaddaConfigArgs} = {
 
 @Injectable()
 export class LaddaConfig implements LaddaConfigArgs {
-    constructor(config: Object = {}) {
+    constructor(config: LaddaConfigArgs = {}) {
         Object.assign(this, config);
     }
 }

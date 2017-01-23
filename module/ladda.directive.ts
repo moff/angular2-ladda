@@ -1,28 +1,27 @@
 import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
-import { LaddaConfig, LaddaConfigArgs, configAttributes } from "./ladda-config";
+import { LaddaConfig, LaddaConfigArgs, configAttributes } from './ladda-config';
 import * as Ladda from 'ladda';
 
 @Directive({
     selector: '[ladda]'
 })
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
-
     private el: HTMLElement;
     private _ladda: ILaddaButton;
 
     @Input('ladda') loading: boolean | number;
     @Input('disabled') disabled: boolean;
 
-    constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() private config: LaddaConfigArgs) {
+    constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() config: LaddaConfigArgs) {
         this.el = el.nativeElement;
 
-        if (!this.config) {
+        if (!config) {
             return;
         }
 
         // apply default styles if they aren't overwritten by an attribute
         for (let attribute in configAttributes) {
-            let configValue = this.config[configAttributes[attribute]];
+            let configValue = config[configAttributes[attribute]];
 
             if (!configValue) {
                 continue; // don't waste time reading the attribute
