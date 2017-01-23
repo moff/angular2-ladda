@@ -2,6 +2,12 @@
   "name": "angular2-ladda",
   "version": "1.0.7",
   "description": "Angular 2 module, implements Ladda",
+  "files": [
+    "module/*.d.ts",
+    "module/*.js",
+    "module/*.js.map",
+    "module/*.json"
+  ],
   "main": "./module/module.js",
   "types": "./module/module.d.ts",
   "scripts": {
