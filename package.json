@@ -2,7 +2,14 @@
   "name": "angular2-ladda",
   "version": "1.0.7",
   "description": "Angular 2 module, implements Ladda",
-  "main": "index.js",
+  "files": [
+    "module/*.d.ts",
+    "module/*.js",
+    "module/*.js.map",
+    "module/*.json"
+  ],
+  "main": "./module/module.js",
+  "types": "./module/module.d.ts",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
@@ -20,6 +27,10 @@
     "angular2-ladda"
   ],
   "author": "Paul Moff",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moff/angular2-ladda.git"
+  },
   "license": "MIT",
   "dependencies": {
     "ladda": "^1.0.0"
@@ -41,9 +52,9 @@
     "@angular/upgrade": "~2.4.4",
     "@types/core-js": "^0.9.35",
     "@types/jasmine": "^2.5.41",
+    "@types/ladda": "^0.9.28",
     "@types/node": "^7.0.0",
     "angular-in-memory-web-api": "~0.2.4",
-    "bootstrap": "^3.3.7",
     "concurrently": "^3.1.0",
     "core-js": "^2.4.1",
     "lite-server": "^2.2.2",
