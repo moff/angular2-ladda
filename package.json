@@ -21,6 +21,10 @@
     "angular2-ladda"
   ],
   "author": "Paul Moff",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moff/angular2-ladda.git"
+  },
   "license": "MIT",
   "dependencies": {
     "ladda": "^1.0.0"
