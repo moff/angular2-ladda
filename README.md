@@ -81,16 +81,16 @@ Otherwise you'll have to edit `systemjs.config.js` to set correct path, e.g.:
 // map tells the System loader where to look for things
 var map = {
     // ...
-    'angular2-ladda':             'node_modules/angular2-ladda',
-    'ladda':                      'node_modules/ladda/js',
-    'spin':                       'node_modules/ladda/js/spin.js',
+    'angular2-ladda': 'node_modules/angular2-ladda/module',
+    'ladda':          'node_modules/ladda/js',
+    'spin':           'node_modules/ladda/js/spin.js',
     // ...
 };
 // packages tells the System loader how to load when no filename and/or no extension
 var packages = {
     // ...
-    'angular2-ladda':             { main: 'index.js', defaultExtension: 'js' },
-    'ladda':                      { main: 'ladda.js', defaultExtension: 'js' },
+    'angular2-ladda': { main: 'module.js', defaultExtension: 'js' },
+    'ladda':          { main: 'ladda.js', defaultExtension: 'js' },
     // ...
 };
 
