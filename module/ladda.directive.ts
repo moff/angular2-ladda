@@ -36,50 +36,54 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if (this._ladda) {
-            let loading = changes['loading'];
+        if (!this._ladda) {
+            return; // needed since ngOnChanges is called before ngOnInit
+        }
 
-            if (loading && loading.currentValue !== loading.previousValue) {
-                if (typeof loading.currentValue !== 'number' || typeof loading.previousValue !== 'number') {
-                    this.toggleLadda()
-                }
+        if (changes['loading']) {
+            this.updateLadda(changes['loading'].previousValue);
+        }
 
-                if (typeof loading.currentValue === 'number') {
-                    this._ladda.setProgress(loading.currentValue);
-                }
-            }
-            
-            if (changes['disabled']) {
-                this.toggleDisabled();
-            }
+        if (changes['disabled']) {
+            this.updateDisabled();
         }
     }
 
     ngOnInit() {
         this._ladda = Ladda.create(this.el);
-        this.toggleLadda();
+
+        // if the initial loading value isn't false, a timeout of 0 ms
+        // is necessary for the calculated spinner size to be correct.
+        setTimeout(() => { this.updateLadda(false); }, 0);
     }
 
     ngOnDestroy() {
         this._ladda.remove();
     }
-    
-    toggleLadda() {
-        if (this.loading !== false) {
-            this._ladda.start();
-            return;
+
+    private updateLadda(previousValue: boolean | number): void {
+        if (this.loading === false) {
+            if (previousValue !== false) {
+                this._ladda.stop();
+            }
+
+            return this.updateDisabled();
         }
 
-        this._ladda.stop();
-        this.toggleDisabled();
+        if (previousValue === false) {
+            this._ladda.start();
+        }
+
+        if (typeof this.loading === 'number') {
+            this._ladda.setProgress(this.loading);
+        }
     }
-    
-    toggleDisabled() {
+
+    private updateDisabled(): void {
         if (this.disabled) {
             this.el.setAttribute('disabled', '');
-            return;
+        } else {
+            this.el.removeAttribute('disabled');
         }
-        
-        this.el.removeAttribute('disabled');
     }
 }

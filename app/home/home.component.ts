@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
     `
 })
 export class HomeComponent {
-    loading: boolean | number = false;
+    loading: boolean | number = true;
     disabled: boolean = true;
     
     toggleLoad() {
