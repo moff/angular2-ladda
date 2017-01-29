@@ -1,8 +1,10 @@
-# Angular 2 Ladda module
+# Angular Ladda module
 
+[![npm version](https://img.shields.io/npm/v/angular2-ladda.svg)](https://www.npmjs.org/package/angular2-ladda)
+[![npm downloads](https://img.shields.io/npm/dt/angular2-ladda.svg)](https://www.npmjs.org/package/angular2-ladda)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](http://opensource.org/licenses/MIT)
 
-This is Angular 2 module that implements [Ladda](https://github.com/hakimel/Ladda)
+This is a module for Angular 2+ that implements [Ladda](https://github.com/hakimel/Ladda).
 
 <a href="http://lab.hakim.se/ladda/" target_='blank'>Check out Ladda's demo</a>
 
