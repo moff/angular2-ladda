@@ -11,7 +11,7 @@
     "outDir": "./compiled"
   },
   "files": [
-    "./app/main.ts",
-    "./module/module.ts"
+    "./app/app.module.ts",
+    "./app/main.ts"
   ]
 }
