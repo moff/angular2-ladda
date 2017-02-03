@@ -8,10 +8,9 @@ This is a module for Angular 2+ that implements [Ladda](https://github.com/hakim
 
 <a href="http://lab.hakim.se/ladda/" target_='blank'>Check out Ladda's demo</a>
 
-
 ## Requirements
-- [NPM](https://npmjs.org/) - Node package manager
 
+- [NPM](https://npmjs.org/) - Node package manager
 
 ## Installation
 
@@ -19,17 +18,17 @@ This is a module for Angular 2+ that implements [Ladda](https://github.com/hakim
 
 - link Ladda's stylesheets to your document - you can find it in /node_modules/ladda/, e.g. add this in your html-document:
 
-```
+```html
 <link rel="stylesheet" href="node_modules/ladda/dist/ladda.min.css">
 ```
 or import it in app.scss, e.g.:
-```
+```css
 @import "node_modules/ladda/css/ladda";
 ```
 
 - import `LaddaModule` in your app's main module `app.module.ts`, e.g.:
 
-```
+```typescript
 // other imports
 // ...
 import { LaddaModule } from 'angular2-ladda';
@@ -42,13 +41,12 @@ import { LaddaModule } from 'angular2-ladda';
         LaddaModule,
         // ...
     ]
-})
-
+});
 ```
 
 Also you can configure Ladda defaults, e.g.:
 
-```
+```typescript
 // other imports
 // ...
 import { LaddaModule } from 'angular2-ladda';
@@ -66,15 +64,14 @@ import { LaddaModule } from 'angular2-ladda';
         }),
         // ...
     ]
-})
-
+});
 ```
 
 That should be enough if you use Webpack to bundle JavaScript.
 
 Otherwise you'll have to edit `systemjs.config.js` to set correct path, e.g.:
 
-```
+```javascript
 // below you can see an example of map and packages sections in systemjs.config.js
 
 // ...
@@ -101,13 +98,13 @@ var packages = {
 
 Add `[ladda]="isLoading"` to a button tag in template, e.g.:
 
-```
+```html
 <button [ladda]="isLoading">Save</button>
 ```
 
-In component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner, e.g.:
+In the component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner, e.g.:
 
-```
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
@@ -142,7 +139,7 @@ Loading progress can be shown by setting the bound value to a number (between 0 
 
 For example:
 
-```
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
