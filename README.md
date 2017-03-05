@@ -155,13 +155,13 @@ export class HomeComponent {
         this.progress = 0; // starts spinner
 
         setTimeout(() => {
-            this.loading = 0.5; // sets progress bar to 50%
+            this.progress = 0.5; // sets progress bar to 50%
 
             setTimeout(() => {
-                this.loading = 1; // sets progress bar to 100%
+                this.progress = 1; // sets progress bar to 100%
 
                 setTimeout(() => {
-                    this.loading = false; // stops spinner
+                    this.progress = false; // stops spinner
                 }, 200);
             }, 500);
         }, 400);
