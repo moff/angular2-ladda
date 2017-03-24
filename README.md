@@ -8,10 +8,6 @@ This is a module for Angular 2+ that implements [Ladda](https://github.com/hakim
 
 <a href="http://lab.hakim.se/ladda/" target_='blank'>Check out Ladda's demo</a>
 
-## Requirements
-
-- [NPM](https://npmjs.org/) - Node package manager
-
 ## Installation
 
 - run `npm install angular2-ladda --save`

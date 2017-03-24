@@ -1,7 +1,7 @@
 {
   "name": "angular2-ladda",
-  "version": "1.1.1",
-  "description": "Angular 2 module, implements Ladda",
+  "version": "1.2.0",
+  "description": "Angular Ladda module",
   "files": [
     "module/*.d.ts",
     "module/*.js",
@@ -18,15 +18,23 @@
     "prepublish": "ngc -p ./tsconfig.publish.json"
   },
   "keywords": [
-    "angular2",
     "angular",
-    "npm",
-    "package",
-    "module",
+    "angular2",
+    "ng2",
     "ladda",
-    "angular2-ladda"
+    "module",
+    "package",
+    "typescript"
   ],
-  "author": "Paul Moff",
+  "author": {
+    "name": "Paul Moff"
+  },
+  "contributors": [
+    {
+      "name": "Theodore Brown",
+      "url": "https://github.com/theodorejb"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/moff/angular2-ladda.git"
@@ -36,32 +44,29 @@
     "ladda": "^1.0.0"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.0"
+    "@angular/core": "^4.0.0"
   },
   "devDependencies": {
-    "@angular/common": "~2.4.4",
-    "@angular/compiler": "~2.4.4",
-    "@angular/compiler-cli": "~2.4.4",
-    "@angular/core": "~2.4.4",
-    "@angular/forms": "~2.4.4",
-    "@angular/http": "~2.4.4",
-    "@angular/platform-browser": "~2.4.4",
-    "@angular/platform-browser-dynamic": "~2.4.4",
-    "@angular/platform-server": "~2.4.4",
-    "@angular/router": "~3.4.4",
-    "@angular/upgrade": "~2.4.4",
-    "@types/core-js": "^0.9.35",
-    "@types/jasmine": "^2.5.41",
+    "@angular/animations": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-server": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "@angular/upgrade": "^4.0.0",
     "@types/ladda": "^0.9.28",
-    "@types/node": "^7.0.0",
-    "angular-in-memory-web-api": "~0.2.4",
-    "concurrently": "^3.1.0",
+    "concurrently": "^3.4.0",
     "core-js": "^2.4.1",
-    "lite-server": "^2.2.2",
-    "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.3",
-    "systemjs": "0.19.42",
-    "typescript": "^2.1.5",
-    "zone.js": "^0.7.6"
+    "lite-server": "^2.3.0",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "5.2.0",
+    "systemjs": "0.19.47",
+    "typescript": "^2.2.1",
+    "zone.js": "^0.8.5"
   }
 }

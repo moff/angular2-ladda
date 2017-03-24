@@ -8,7 +8,8 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "declaration": true
+    "declaration": true,
+    "lib": ["es2015", "dom"]
   },
   "files": [
     "./module/module.ts"
