@@ -1,21 +1,36 @@
 import { Component } from '@angular/core';
+import {laddaValue} from '../../module/ladda.directive';
 
 @Component({
     template: `
         <p>Home Component</p>
-        <button [disabled]="!loading" (click)='toggleLoad()'>Stop Ladda</button>
+        <button [disabled]="!isLoading()" (click)='stopFalse()'>Stop with false</button>
+        <button [disabled]="!isLoading()" (click)='stopNull()'>Stop with null</button>
+        <button [disabled]="!isLoading()" (click)='stopUndef()'>Stop with undefined</button>
         <button (click)='toggleDisabled()'>Toggle disabled state</button>
         <hr>
-        <button [ladda]="loading !== false" data-style="zoom-in" data-spinner-size="30" data-spinner-color="red" data-spinner-lines="10" (click)="startLoading()">Click me</button>
+        <button [ladda]="isLoading()" data-style="zoom-in" data-spinner-size="30" data-spinner-color="red" data-spinner-lines="10" (click)="startLoading()">Click me</button>
         <button [disabled]="disabled" [ladda]="loading" (click)="startLoading()">Click me</button>
     `
 })
 export class HomeComponent {
-    loading: boolean | number = true;
+    loading: laddaValue = true;
     disabled: boolean = true;
-    
-    toggleLoad() {
+
+    isLoading(): boolean {
+        return typeof this.loading === 'number' || this.loading;
+    }
+
+    stopFalse() {
         this.loading = false;
+    }
+
+    stopNull() {
+        this.loading = null;
+    }
+
+    stopUndef() {
+        this.loading = undefined;
     }
     
     toggleDisabled() {
@@ -26,11 +41,11 @@ export class HomeComponent {
         let getLoadingPromise = (loading: number | boolean, delay: number) => {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    if (this.loading === false) {
-                        reject();
-                    } else {
+                    if (typeof this.loading === 'number' || this.loading) {
                         this.loading = loading;
                         resolve();
+                    } else {
+                        reject();
                     }
                 }, delay);
             });

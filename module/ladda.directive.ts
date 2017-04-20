@@ -2,6 +2,8 @@ import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChang
 import { LaddaConfig, LaddaConfigArgs, configAttributes } from './ladda-config';
 import * as Ladda from 'ladda';
 
+export type laddaValue = boolean | number | undefined | null;
+
 @Directive({
     selector: '[ladda]'
 })
@@ -9,7 +11,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     private el: HTMLElement;
     private _ladda: ILaddaButton;
 
-    @Input('ladda') loading: boolean | number;
+    @Input('ladda') loading: laddaValue;
     @Input('disabled') disabled: boolean;
 
     constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() config: LaddaConfigArgs) {
@@ -61,16 +63,19 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
         this._ladda.remove();
     }
 
-    private updateLadda(previousValue: boolean | number): void {
-        if (this.loading === false) {
-            if (previousValue !== false) {
+    private updateLadda(previousValue: laddaValue): void {
+        let loading: boolean = typeof this.loading === 'number' || this.loading;
+        let wasLoading: boolean =  typeof previousValue === 'number' || previousValue;
+
+        if (!loading) {
+            if (wasLoading) {
                 this._ladda.stop();
             }
 
             return this.updateDisabled();
         }
 
-        if (previousValue === false) {
+        if (!wasLoading) {
             this._ladda.start();
         }
 
