@@ -18,7 +18,7 @@ export class HomeComponent {
     disabled: boolean = true;
 
     isLoading(): boolean {
-        return typeof this.loading === 'number' || this.loading;
+        return typeof this.loading === 'number' || !!this.loading;
     }
 
     stopFalse() {

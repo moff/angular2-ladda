@@ -64,8 +64,8 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     private updateLadda(previousValue: laddaValue): void {
-        let loading: boolean = typeof this.loading === 'number' || this.loading;
-        let wasLoading: boolean = typeof previousValue === 'number' || previousValue;
+        let loading: boolean = typeof this.loading === 'number' || !!this.loading;
+        let wasLoading: boolean = typeof previousValue === 'number' || !!previousValue;
 
         if (!loading) {
             if (wasLoading) {

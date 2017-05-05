@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
+    "strictNullChecks": true,
     "outDir": "./compiled",
     "lib": ["es2015", "dom"]
   },
