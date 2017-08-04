@@ -1,8 +1,9 @@
 import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
 import { LaddaConfig, LaddaConfigArgs, configAttributes } from './ladda-config';
 import * as Ladda from 'ladda';
+import {Subscription} from 'rxjs/Subscription';
 
-export type laddaValue = boolean | number | undefined | null;
+export type laddaValue = boolean | number | undefined | null | Subscription;
 
 @Directive({
     selector: '[ladda]'
@@ -64,8 +65,8 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     private updateLadda(previousValue: laddaValue): void {
-        let loading: boolean = typeof this.loading === 'number' || !!this.loading;
-        let wasLoading: boolean = typeof previousValue === 'number' || !!previousValue;
+        let loading: boolean = typeof this.loading === 'number' || this.loading instanceof Subscription || !!this.loading;
+        let wasLoading: boolean = (this.loading instanceof Subscription) ? false : typeof previousValue === 'number' || !!previousValue;
 
         if (!loading) {
             if (wasLoading) {
@@ -77,6 +78,10 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
 
         if (!wasLoading) {
             this._ladda.start();
+
+            if(this.loading instanceof Subscription) {
+                this.loading.add(() => this._ladda.stop());
+            }
         }
 
         if (typeof this.loading === 'number') {
