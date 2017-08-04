@@ -122,6 +122,36 @@ export class HomeComponent {
 }
 ```
 
+It also accepts subscription of an observable as loading value.
+
+```typescript
+import { Component } from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
+import { Http } from '@angular/http';
+
+@Component({
+    template: `
+        <h1>Home Component</h1>
+        <button (click)="toggleLoading()">Toggle Ladda in button below</button>
+        <hr>
+        <button [ladda]="subscription">Save</button>
+    `
+})
+export class HomeComponent {
+    
+    // trigger-variable for Ladda
+    subscription: Subscription;
+    posts: any[];
+
+    constructor(private http: Http) {}
+    
+    toggleLoading() {
+        this.isLoading = this.http.get('https://jsonplaceholder.typicode.com/posts')
+                            .subscribe(posts => { this.posts = posts });
+    }
+}
+```
+
 Also buttons accept the following attributes:
 
 - data-style: one of the button styles, full list in [demo](http://lab.hakim.se/ladda/)
