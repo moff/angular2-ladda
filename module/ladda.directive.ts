@@ -8,7 +8,7 @@ export type laddaValue = boolean | number | undefined | null;
     selector: '[ladda]'
 })
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
-    private el: HTMLElement;
+    private el: HTMLButtonElement;
     private _ladda: ILaddaButton;
 
     @Input('ladda') loading: laddaValue;
@@ -85,10 +85,6 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     private updateDisabled(): void {
-        if (this.disabled) {
-            this.el.setAttribute('disabled', '');
-        } else {
-            this.el.removeAttribute('disabled');
-        }
+        this.el.disabled = this.disabled;
     }
 }
