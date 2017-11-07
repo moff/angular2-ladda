@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
 import { LaddaConfig, LaddaConfigArgs, configAttributes } from './ladda-config';
-import * as Ladda from 'ladda';
+import {create as createLadda, LaddaButton} from 'ladda';
 
 export type laddaValue = boolean | number | undefined | null;
 
@@ -9,7 +9,7 @@ export type laddaValue = boolean | number | undefined | null;
 })
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     private el: HTMLButtonElement;
-    private _ladda: ILaddaButton;
+    private _ladda: LaddaButton;
 
     @Input('ladda') loading: laddaValue;
     @Input('disabled') disabled: boolean;
@@ -52,7 +52,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnInit() {
-        this._ladda = Ladda.create(this.el);
+        this._ladda = createLadda(this.el);
 
         // if the initial loading value isn't false, a timeout of 0 ms
         // is necessary for the calculated spinner size to be correct.

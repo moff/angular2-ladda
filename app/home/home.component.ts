@@ -11,7 +11,12 @@ import {laddaValue} from '../../module/ladda.directive';
         <hr>
         <button [ladda]="isLoading()" data-style="zoom-in" data-spinner-size="30" data-spinner-color="red" data-spinner-lines="10" (click)="startLoading()">Click me</button>
         <button [disabled]="disabled" [ladda]="loading" (click)="startLoading()">Click me</button>
-    `
+    `,
+    styles: [`
+        button {
+            margin-right: 0.5em;
+        }
+    `],
 })
 export class HomeComponent {
     loading: laddaValue = true;

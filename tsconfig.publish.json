@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -16,7 +16,6 @@
     "./module/module.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "aot",
     "skipTemplateCodegen": true
   }
 }
