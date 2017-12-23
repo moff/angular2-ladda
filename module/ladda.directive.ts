@@ -60,8 +60,11 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnDestroy() {
-		if(this._ladda)
-			this._ladda.remove();
+        if (!this._ladda) {
+            return;
+        }
+		
+		this._ladda.remove();
     }
 
     private updateLadda(previousValue: laddaValue): void {
