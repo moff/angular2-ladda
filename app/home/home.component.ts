@@ -10,7 +10,8 @@ import {laddaValue} from '../../module/ladda.directive';
         <button (click)='toggleDisabled()'>Toggle disabled state</button>
         <hr>
         <button [ladda]="isLoading()" data-style="zoom-in" data-spinner-size="30" data-spinner-color="red" data-spinner-lines="10" (click)="startLoading()">Click me</button>
-        <button [disabled]="disabled" [ladda]="loading" (click)="startLoading()">Click me</button>
+        <button [disabled]="disabled" [ladda]="loading" (click)="startLoading()">{{(loading === true) ? 'Loading' : 'Click me'}}</button>
+        <button [disabled]="toggledDisable" [ladda]="toggledLoad" (click)="toggleLoading()">Toggle me</button>
     `,
     styles: [`
         button {
@@ -21,6 +22,8 @@ import {laddaValue} from '../../module/ladda.directive';
 export class HomeComponent {
     loading: laddaValue = true;
     disabled: boolean = true;
+    toggledLoad: boolean = false;
+    toggledDisable: boolean = false;
 
     isLoading(): boolean {
         return typeof this.loading === 'number' || !!this.loading;
@@ -42,6 +45,19 @@ export class HomeComponent {
         this.disabled = !this.disabled;
     }
 
+    toggleLoading() {
+        if (this.toggledLoad) {
+            this.toggledLoad = false;
+        } else {
+            this.toggledDisable = true;
+            this.toggledLoad = true;
+
+            setTimeout(() => {
+                this.toggledDisable = false;
+            }, 0);
+        }
+    }
+
     startLoading() {
         let getLoadingPromise = (loading: number | boolean, delay: number) => {
             return new Promise((resolve, reject) => {
@@ -59,8 +75,8 @@ export class HomeComponent {
         this.loading = 0; // starts progress indicator
 
         getLoadingPromise(0.25, 150)
-            .then(() => getLoadingPromise(0.6, 400))
-            .then(() => getLoadingPromise(0.9, 500))
+            .then(() => getLoadingPromise(0.6, 500))
+            .then(() => getLoadingPromise(0.9, 400))
             .then(() => getLoadingPromise(1, 300))
             .then(() => getLoadingPromise(false, 200))
             .catch(() => console.log("loading canceled"));
