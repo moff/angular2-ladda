@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 
 export type laddaStyle =
     "expand-left" | "expand-right" | "expand-up" | "expand-down" |

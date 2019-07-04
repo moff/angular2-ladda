@@ -1,5 +1,5 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
-import { LaddaConfig, LaddaConfigArgs, configAttributes } from './ladda-config';
+import {Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject} from '@angular/core';
+import {LaddaConfig, LaddaConfigArgs, configAttributes} from './ladda-config';
 import {create as createLadda, LaddaButton} from 'ladda';
 
 export type laddaValue = boolean | number | undefined | null;
@@ -9,10 +9,10 @@ export type laddaValue = boolean | number | undefined | null;
 })
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     private el: HTMLButtonElement;
-    private _ladda: LaddaButton;
+    private ladda: LaddaButton;
 
     @Input('ladda') loading: laddaValue;
-    @Input('disabled') disabled: boolean;
+    @Input() disabled: boolean;
 
     constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() config: LaddaConfigArgs) {
         this.el = el.nativeElement;
@@ -38,21 +38,21 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if (!this._ladda) {
+        if (!this.ladda) {
             return; // needed since ngOnChanges is called before ngOnInit
         }
 
-        if (changes['loading']) {
-            this.updateLadda(changes['loading'].previousValue);
+        if (changes.loading) {
+            this.updateLadda(changes.loading.previousValue);
         }
 
-        if (changes['disabled']) {
+        if (changes.disabled) {
             this.updateDisabled();
         }
     }
 
     ngOnInit() {
-        this._ladda = createLadda(this.el);
+        this.ladda = createLadda(this.el);
 
         // if the initial loading value isn't false, a timeout of 0 ms
         // is necessary for the calculated spinner size to be correct.
@@ -60,8 +60,8 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnDestroy() {
-        if (this._ladda) {
-            this._ladda.remove();
+        if (this.ladda) {
+            this.ladda.remove();
         }
     }
 
@@ -71,18 +71,18 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
 
         if (!loading) {
             if (wasLoading) {
-                this._ladda.stop();
+                this.ladda.stop();
             }
 
             return this.updateDisabled();
         }
 
         if (!wasLoading) {
-            this._ladda.start();
+            this.ladda.start();
         }
 
         if (typeof this.loading === 'number') {
-            this._ladda.setProgress(this.loading);
+            this.ladda.setProgress(this.loading);
         }
     }
 

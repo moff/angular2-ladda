@@ -1,19 +1,36 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "moduleResolution": "node",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "emitDecoratorMetadata": true,
+    "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "noUnusedLocals": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "outDir": "./compiled",
-    "lib": ["es2015", "dom"]
+    "paths": {
+      "angular2-ladda": [
+        "dist/ladda"
+      ],
+      "angular2-ladda/*": [
+        "dist/ladda/*"
+      ]
+    }
   },
-  "files": [
-    "./app/app.module.ts",
-    "./app/main.ts"
-  ]
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

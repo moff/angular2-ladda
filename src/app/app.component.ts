@@ -1,29 +1,16 @@
-import { Component } from '@angular/core';
-import {laddaValue} from '../../module/ladda.directive';
+import {Component} from '@angular/core';
+import {laddaValue} from 'angular2-ladda';
 
 @Component({
-    template: `
-        <p>Home Component</p>
-        <button [disabled]="!isLoading()" (click)='stopFalse()'>Stop with false</button>
-        <button [disabled]="!isLoading()" (click)='stopNull()'>Stop with null</button>
-        <button [disabled]="!isLoading()" (click)='stopUndef()'>Stop with undefined</button>
-        <button (click)='toggleDisabled()'>Toggle disabled state</button>
-        <hr>
-        <button [ladda]="isLoading()" data-style="zoom-in" data-spinner-size="30" data-spinner-color="red" data-spinner-lines="10" (click)="startLoading()">Click me</button>
-        <button [disabled]="disabled" [ladda]="loading" (click)="startLoading()">{{(loading === true) ? 'Loading' : 'Click me'}}</button>
-        <button [disabled]="toggledDisable" [ladda]="toggledLoad" (click)="toggleLoading()">Toggle me</button>
-    `,
-    styles: [`
-        button {
-            margin-right: 0.5em;
-        }
-    `],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class HomeComponent {
+export class AppComponent {
     loading: laddaValue = true;
-    disabled: boolean = true;
-    toggledLoad: boolean = false;
-    toggledDisable: boolean = false;
+    disabled = true;
+    toggledLoad = false;
+    toggledDisable = false;
 
     isLoading(): boolean {
         return typeof this.loading === 'number' || !!this.loading;
@@ -40,7 +27,7 @@ export class HomeComponent {
     stopUndef() {
         this.loading = undefined;
     }
-    
+
     toggleDisabled() {
         this.disabled = !this.disabled;
     }

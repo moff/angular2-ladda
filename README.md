@@ -10,15 +10,18 @@ This is a module for Angular 2+ that implements [Ladda](https://github.com/hakim
 
 ## Installation
 
-- run `npm install angular2-ladda`
+- Run `npm install angular2-ladda`
 
-- link Ladda's stylesheets to your document - you can find it in /node_modules/ladda/, e.g. add this in your html-document:
+- Add "node_modules/ladda/dist/ladda.min.css" or
+"node_modules/ladda/dist/ladda-themeless.min.css" to the "styles"
+array in your angular.json file. If you aren't using the Angular CLI,
+link to the appropriate CSS file in your document instead. For example:
 
 ```html
 <link rel="stylesheet" href="node_modules/ladda/dist/ladda.min.css">
 ```
 
-- import `LaddaModule` in your app's main module `app.module.ts`, e.g.:
+- Import `LaddaModule` in your app's main module `app.module.ts`, e.g.:
 
 ```typescript
 // other imports
@@ -61,13 +64,13 @@ import { LaddaModule } from 'angular2-ladda';
 
 ## Usage
 
-Add `[ladda]="isLoading"` to a button tag in template, e.g.:
+Add `[ladda]="isLoading"` to a button tag in your template, e.g.:
 
 ```html
 <button [ladda]="isLoading">Save</button>
 ```
 
-In the component the value of `isLoading` can be toggled to show/hide Ladda's spinner:
+In the component the value of `isLoading` can be changed to show/hide Ladda's spinner:
 
 ```typescript
 import { Component } from '@angular/core';

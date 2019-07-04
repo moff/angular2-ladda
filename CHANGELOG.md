@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.2]
+- Built with Angular CLI and ng-packagr - compatible with Ivy compiler.
+
 ## [2.0.1] - 2019-03-06
 ### Changed
 - Built with Angular 7.
@@ -90,7 +93,8 @@ animations.
 ## [1.0.1] - 2016-09-20
 - Initial stable release
 
-[Unreleased]: https://github.com/moff/angular2-ladda/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/moff/angular2-ladda/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/moff/angular2-ladda/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/moff/angular2-ladda/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/moff/angular2-ladda/compare/v1.2.3...v2.0.0
 [1.2.3]: https://github.com/moff/angular2-ladda/compare/v1.2.2...v1.2.3
