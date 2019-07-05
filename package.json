@@ -1,63 +1,38 @@
 {
-  "name": "angular2-ladda",
-  "version": "2.0.1",
-  "description": "Angular Ladda module",
-  "files": [
-    "module/*.d.ts",
-    "module/*.js",
-    "module/*.js.map",
-    "module/*.json"
-  ],
-  "main": "./module/module.js",
-  "types": "./module/module.d.ts",
+  "name": "ladda-app",
+  "private": true,
   "scripts": {
-    "start": "npm run build && npm run bundle && npm run lite",
-    "lite": "lite-server",
-    "build": "ngc -p ./tsconfig.json",
-    "bundle": "rollup -c",
-    "prepare": "ngc -p ./tsconfig.publish.json"
+    "start": "ng serve",
+    "build": "ng build",
+    "build-prod": "ng build --prod",
+    "watch": "ng build angular2-ladda --watch",
+    "build-ladda": "ng build angular2-ladda && cpx README.md dist/ladda",
+    "lint": "ng lint"
   },
-  "keywords": [
-    "angular",
-    "ladda",
-    "spinner",
-    "typescript"
-  ],
-  "author": {
-    "name": "Paul Moff"
-  },
-  "contributors": [
-    {
-      "name": "Theodore Brown",
-      "url": "https://github.com/theodorejb"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/moff/angular2-ladda.git"
-  },
-  "license": "MIT",
   "dependencies": {
-    "ladda": "^2.0.1"
-  },
-  "peerDependencies": {
-    "@angular/core": "^7.0.0"
+    "ladda": "^2.0.1",
+    "tslib": "^1.9.0"
   },
   "devDependencies": {
-    "@angular/common": "^7.2.7",
-    "@angular/compiler": "^7.2.7",
-    "@angular/compiler-cli": "^7.2.7",
-    "@angular/core": "^7.2.7",
-    "@angular/forms": "^7.2.7",
-    "@angular/platform-browser": "^7.2.7",
-    "@angular/router": "^7.2.7",
-    "core-js": "^2.6.5",
-    "lite-server": "^2.4.0",
-    "rollup": "^1.4.1",
-    "rollup-plugin-commonjs": "^9.2.1",
-    "rollup-plugin-node-resolve": "^4.0.1",
-    "rxjs": "^6.4.0",
-    "typescript": "~3.2.4",
-    "zone.js": "^0.8.29"
+    "@angular-devkit/build-angular": "~0.801.0",
+    "@angular-devkit/build-ng-packagr": "~0.801.0",
+    "@angular/animations": "~8.1.0",
+    "@angular/cli": "~8.1.0",
+    "@angular/common": "~8.1.0",
+    "@angular/compiler": "~8.1.0",
+    "@angular/compiler-cli": "~8.1.0",
+    "@angular/core": "~8.1.0",
+    "@angular/forms": "~8.1.0",
+    "@angular/language-service": "~8.1.0",
+    "@angular/platform-browser": "~8.1.0",
+    "@angular/platform-browser-dynamic": "~8.1.0",
+    "codelyzer": "^5.0.0",
+    "cpx": "^1.5.0",
+    "ng-packagr": "^5.1.0",
+    "rxjs": "~6.4.0",
+    "tsickle": "^0.35.0",
+    "tslint": "^5.18.0",
+    "typescript": "~3.4.3",
+    "zone.js": "~0.9.1"
   }
 }

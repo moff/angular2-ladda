@@ -1,6 +1,6 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { LaddaDirective } from './ladda.directive';
-import { LaddaConfigArgs, LaddaConfig } from './ladda-config';
+import {NgModule, ModuleWithProviders} from '@angular/core';
+import {LaddaDirective} from './ladda.directive';
+import {LaddaConfigArgs, LaddaConfig} from './ladda-config';
 
 @NgModule({
     declarations: [ LaddaDirective ],
