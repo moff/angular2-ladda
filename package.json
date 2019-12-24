@@ -1,6 +1,7 @@
 {
   "name": "ladda-app",
   "private": true,
+  "version": "1.2.1",
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
