@@ -1,6 +1,7 @@
 {
   "name": "ladda-app",
   "private": true,
+  "version" : "2.1",
    "precommit": [
      "build"
    ],
