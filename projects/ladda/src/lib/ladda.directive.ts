@@ -1,6 +1,7 @@
-import {Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject} from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject, PLATFORM_ID } from '@angular/core';
 import {LaddaConfig, LaddaConfigArgs, configAttributes} from './ladda-config';
 import {create as createLadda, LaddaButton} from 'ladda';
+import { isPlatformBrowser } from '@angular/common';
 
 export type laddaValue = boolean | number | undefined | null;
 
@@ -14,7 +15,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     @Input('ladda') loading: laddaValue;
     @Input() disabled: boolean;
 
-    constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() config: LaddaConfigArgs) {
+    constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() config: LaddaConfigArgs, @Inject(PLATFORM_ID) private platformId: Object) {
         this.el = el.nativeElement;
 
         if (!config) {
@@ -52,11 +53,13 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnInit() {
+      if (isPlatformBrowser(this.platformId)) {
         this.ladda = createLadda(this.el);
 
         // if the initial loading value isn't false, a timeout of 0 ms
         // is necessary for the calculated spinner size to be correct.
         setTimeout(() => { this.updateLadda(false); }, 0);
+      }
     }
 
     ngOnDestroy() {
