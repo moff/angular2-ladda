@@ -1,6 +1,9 @@
 {
   "name": "ladda-app",
   "private": true,
+   "precommit": [
+     "build"
+   ],
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
