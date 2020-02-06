@@ -23,14 +23,11 @@
     "paths": {
       "angular2-ladda": [
         "dist/ladda"
-      ],
-      "angular2-ladda/*": [
-        "dist/ladda/*"
       ]
     }
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
+    "strictTemplates": true,
     "strictInjectionParameters": true
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "angular2-ladda",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Angular Ladda module",
   "keywords": [
     "angular",
@@ -23,10 +23,9 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^8.1.0",
-    "@angular/core": "^8.1.0"
-  },
-  "dependencies": {
-    "ladda": "^2.0.1"
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "ladda": "^2.0.1",
+    "tslib": "^1.10.0"
   }
 }
