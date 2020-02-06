@@ -41,7 +41,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -50,6 +49,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -89,13 +93,18 @@
       "projectType": "library",
       "root": "projects/ladda",
       "sourceRoot": "projects/ladda/src",
-      "prefix": "lib",
+      "prefix": "ladda",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/ladda/tsconfig.lib.json",
             "project": "projects/ladda/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ladda/tsconfig.lib.prod.json"
+            }
           }
         },
         "lint": {
@@ -110,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ladda-app"
+    }
+  },
+  "defaultProject": "ladda-app",
+  "cli": {
+    "analytics": "75c53465-da41-4fc9-a16b-36324ee0ed5b"
+  }
 }
