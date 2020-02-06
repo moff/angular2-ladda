@@ -6,11 +6,11 @@
 
 This is a module for Angular 2+ that implements [Ladda](https://github.com/hakimel/Ladda).
 
-<a href="http://lab.hakim.se/ladda/" target_='blank'>Check out Ladda's demo</a>
+<a href="https://lab.hakim.se/ladda/" target_='blank'>Check out Ladda's demo</a>
 
 ## Installation
 
-- Run `npm install angular2-ladda`
+- Run `npm install ladda angular2-ladda`
 
 - Add "node_modules/ladda/dist/ladda.min.css" or
 "node_modules/ladda/dist/ladda-themeless.min.css" to the "styles"

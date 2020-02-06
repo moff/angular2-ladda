@@ -7,7 +7,7 @@ import {LaddaConfigArgs, LaddaConfig} from './ladda-config';
     exports:      [ LaddaDirective ],
 })
 export class LaddaModule {
-    public static forRoot(config: LaddaConfigArgs): ModuleWithProviders {
+    public static forRoot(config: LaddaConfigArgs): ModuleWithProviders<LaddaModule> {
         return {
             ngModule: LaddaModule,
             providers: [
