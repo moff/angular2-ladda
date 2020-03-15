@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2020-03-15
+### Added
+- Improved support for server-side rendering (issue [#39])
+
 ## [3.0.0] - 2020-02-09
 ### Changed
 - Ladda is now a peer dependency and must be explicitly installed.
@@ -99,7 +103,8 @@ animations.
 ## [1.0.1] - 2016-09-20
 - Initial stable release
 
-[Unreleased]: https://github.com/moff/angular2-ladda/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/moff/angular2-ladda/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/moff/angular2-ladda/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/moff/angular2-ladda/compare/v2.0.2...v3.0.0
 [2.0.2]: https://github.com/moff/angular2-ladda/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/moff/angular2-ladda/compare/v2.0.0...v2.0.1
@@ -119,3 +124,4 @@ animations.
 [1.0.1]: https://github.com/moff/angular2-ladda/tree/v1.0.1
 
 [#27]: https://github.com/moff/angular2-ladda/issues/27
+[#39]: https://github.com/moff/angular2-ladda/issues/39
