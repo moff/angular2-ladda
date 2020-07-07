@@ -23,9 +23,11 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "ladda": "^2.0.1",
-    "tslib": "^1.10.0"
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0",
+    "ladda": "^2.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }
