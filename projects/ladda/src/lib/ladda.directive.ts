@@ -10,10 +10,10 @@ export type laddaValue = boolean | number | undefined | null;
 })
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     private el: HTMLButtonElement;
-    private ladda: LaddaButton;
+    private ladda: LaddaButton | undefined = undefined;
 
     @Input('ladda') loading: laddaValue;
-    @Input() disabled: boolean;
+    @Input() disabled = false;
 
     constructor(
         el: ElementRef,
@@ -75,6 +75,10 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     private updateLadda(previousValue: laddaValue): void {
+        if (!this.ladda) {
+            return;
+        }
+
         let loading: boolean = typeof this.loading === 'number' || !!this.loading;
         let wasLoading: boolean = typeof previousValue === 'number' || !!previousValue;
 
