@@ -1,0 +1,89 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "ladda",
+            "style": "camelCase"
+          }
+        ],
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/quotes": "off",
+        "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/no-empty-function": "error",
+        "@typescript-eslint/no-var-requires": "error",
+        "array-bracket-spacing": ["error", "never"],
+        "arrow-parens": [
+          "error",
+          "as-needed"
+        ],
+        "block-spacing": ["error", "never"],
+        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "comma-dangle": ["error", "always-multiline"],
+        "func-call-spacing": "error",
+        "guard-for-in": "off",
+        "import/order": "error",
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "max-classes-per-file": ["error", 2],
+        "max-len": ["error", { "code": 140 }],
+        "no-empty": "error",
+        "no-extra-semi": "error",
+        "no-fallthrough": "off",
+        "no-irregular-whitespace": "error",
+        "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
+        "no-multiple-empty-lines": "error",
+        "object-curly-spacing": "error",
+        "object-shorthand": "off",
+        "padded-blocks": ["error", "never"],
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "prefer-const": "off",
+        "space-before-function-paren": [
+          "error",
+          {
+            "anonymous": "always",
+            "asyncArrow": "always",
+            "named": "never"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

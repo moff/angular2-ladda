@@ -1,18 +1,18 @@
 import {isPlatformBrowser} from '@angular/common';
 import {Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject, PLATFORM_ID} from '@angular/core';
-import {LaddaConfig, LaddaConfigArgs, configAttributes} from './ladda-config';
 import {create as createLadda, LaddaButton} from 'ladda';
+import {LaddaConfig, LaddaConfigArgs, configAttributes} from './ladda-config';
 
-export type laddaValue = boolean | number | undefined | null;
+export type LaddaValue = boolean | number | undefined | null;
 
 @Directive({
-    selector: '[ladda]'
+    selector: '[ladda]',
 })
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     private el: HTMLButtonElement;
     private ladda: LaddaButton | undefined = undefined;
 
-    @Input('ladda') loading: laddaValue;
+    @Input('ladda') loading: LaddaValue;
     @Input() disabled = false;
 
     constructor(
@@ -65,7 +65,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
 
         // if the initial loading value isn't false, a timeout of 0 ms
         // is necessary for the calculated spinner size to be correct.
-        setTimeout(() => { this.updateLadda(false); }, 0);
+        setTimeout(() => {this.updateLadda(false);}, 0);
     }
 
     ngOnDestroy() {
@@ -74,7 +74,7 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
         }
     }
 
-    private updateLadda(previousValue: laddaValue): void {
+    private updateLadda(previousValue: LaddaValue): void {
         if (!this.ladda) {
             return;
         }

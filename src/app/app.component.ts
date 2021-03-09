@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
-import {laddaValue} from 'angular2-ladda';
+import {LaddaValue} from 'angular2-ladda';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-    loading: laddaValue = true;
+    loading: LaddaValue = true;
     disabled = true;
     toggledLoad = false;
     toggledDisable = false;
@@ -46,8 +46,8 @@ export class AppComponent {
     }
 
     startLoading() {
-        let getLoadingPromise = (loading: number | boolean, delay: number) => {
-            return new Promise((resolve, reject) => {
+        let getLoadingPromise = (loading: number | boolean, delay: number) =>
+            new Promise<void>((resolve, reject) => {
                 setTimeout(() => {
                     if (typeof this.loading === 'number' || this.loading) {
                         this.loading = loading;
@@ -57,7 +57,6 @@ export class AppComponent {
                     }
                 }, delay);
             });
-        };
 
         this.loading = 0; // starts progress indicator
 
