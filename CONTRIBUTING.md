@@ -16,6 +16,10 @@ Run `npm run watch` to watch for changes to the Ladda library.
 Then run `npm start` for a dev server. Navigate to `http://localhost:4200/`.
 The site will automatically reload if you change any of the source files.
 
+## Linting
+
+Run `npm run lint` and fix any issues before committing changes.
+
 ## Build test app
 
 Run `npm run build`, or `npm run build-prod` for a production build.

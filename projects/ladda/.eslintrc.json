@@ -14,8 +14,7 @@
         ],
         "createDefaultProgram": true
       },
-      "rules": {
-      }
+      "rules": {}
     },
     {
       "files": [
