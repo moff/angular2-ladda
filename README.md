@@ -146,7 +146,7 @@ export class HomeComponent {
     constructor(private http: Http) {}
     
     toggleLoading() {
-        this.isLoading = this.http.get('https://jsonplaceholder.typicode.com/posts')
+        this.subscription = this.http.get('https://jsonplaceholder.typicode.com/posts')
                             .subscribe(posts => { this.posts = posts });
     }
 }
