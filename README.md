@@ -6,23 +6,22 @@
 
 This is a module for Angular 2+ that implements [Ladda](https://github.com/hakimel/Ladda).
 
-<a href="http://lab.hakim.se/ladda/" target_='blank'>Check out Ladda's demo</a>
+<a href="https://lab.hakim.se/ladda/" target_='blank'>Check out Ladda's demo</a>
 
 ## Installation
 
-- run `npm install angular2-ladda --save`
+- Run `npm install ladda angular2-ladda`
 
-- link Ladda's stylesheets to your document - you can find it in /node_modules/ladda/, e.g. add this in your html-document:
+- Add "node_modules/ladda/dist/ladda.min.css" or
+"node_modules/ladda/dist/ladda-themeless.min.css" to the "styles"
+array in your angular.json file. If you aren't using the Angular CLI,
+link to the appropriate CSS file in your document instead. For example:
 
 ```html
 <link rel="stylesheet" href="node_modules/ladda/dist/ladda.min.css">
 ```
-or import it in app.scss, e.g.:
-```css
-@import "node_modules/ladda/css/ladda";
-```
 
-- import `LaddaModule` in your app's main module `app.module.ts`, e.g.:
+- Import `LaddaModule` in your app's main module `app.module.ts`, e.g.:
 
 ```typescript
 // other imports
@@ -40,7 +39,7 @@ import { LaddaModule } from 'angular2-ladda';
 });
 ```
 
-Also you can configure Ladda defaults, e.g.:
+Ladda defaults can be configured as follows:
 
 ```typescript
 // other imports
@@ -63,42 +62,15 @@ import { LaddaModule } from 'angular2-ladda';
 });
 ```
 
-That should be enough if you use Webpack to bundle JavaScript.
-
-Otherwise you'll have to edit `systemjs.config.js` to set correct path, e.g.:
-
-```javascript
-// below you can see an example of map and packages sections in systemjs.config.js
-
-// ...
-// map tells the System loader where to look for things
-var map = {
-    // ...
-    'angular2-ladda': 'node_modules/angular2-ladda/module',
-    'ladda':          'node_modules/ladda/js',
-    'spin':           'node_modules/ladda/js/spin.js',
-    // ...
-};
-// packages tells the System loader how to load when no filename and/or no extension
-var packages = {
-    // ...
-    'angular2-ladda': { main: 'module.js', defaultExtension: 'js' },
-    'ladda':          { main: 'ladda.js', defaultExtension: 'js' },
-    // ...
-};
-
-// ...
-```
-
 ## Usage
 
-Add `[ladda]="isLoading"` to a button tag in template, e.g.:
+Add `[ladda]="isLoading"` to a button tag in your template, e.g.:
 
 ```html
 <button [ladda]="isLoading">Save</button>
 ```
 
-In the component you'll have to toggle value of `isLoading` variable to show\hide Ladda's spinner, e.g.:
+In the component the value of `isLoading` can be changed to show/hide Ladda's spinner:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -112,7 +84,6 @@ import { Component } from '@angular/core';
     `
 })
 export class HomeComponent {
-    
     // trigger-variable for Ladda
     isLoading: boolean = false;
     
@@ -152,10 +123,10 @@ export class HomeComponent {
 }
 ```
 
-Also buttons accept the following attributes:
+Buttons accept the following attributes:
 
 - data-style: one of the button styles, full list in [demo](http://lab.hakim.se/ladda/)
-- data-spinner-size: 40, pixel dimensions of spinner, defaults to dynamic size based on the button height
+- data-spinner-size: pixel dimensions of spinner, defaults to dynamic size based on the button height
 - data-spinner-color: hex code or any named CSS color
 - data-spinner-lines: the number of lines for the spinner, defaults to 12
 
@@ -197,8 +168,8 @@ export class HomeComponent {
 
 ## Feedback
 
-Please [leave your feedback](https://github.com/moff/angular2-ladda/issues) if you have noticed any issues or have a feature request.
+Please [leave your feedback](https://github.com/moff/angular2-ladda/issues) if you notice any issues or have a feature request.
 
 ## License
 
-The repository code is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The repository code is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).

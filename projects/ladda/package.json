@@ -1,0 +1,33 @@
+{
+  "name": "angular2-ladda",
+  "version": "3.1.1",
+  "description": "Angular Ladda module",
+  "keywords": [
+    "angular",
+    "ladda",
+    "spinner",
+    "typescript"
+  ],
+  "author": {
+    "name": "Paul Moff"
+  },
+  "contributors": [
+    {
+      "name": "Theodore Brown",
+      "url": "https://github.com/theodorejb"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moff/angular2-ladda.git"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^11.0.0",
+    "@angular/core": "^11.0.0",
+    "ladda": "^2.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

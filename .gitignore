@@ -1,31 +1,9 @@
-nbproject
-manifest.mf
-build.xml
-node_modules
-npm-debug.log
-coverage
-*.js
-!systemjs.config.js
-!karma.conf.js
-!karma-test-shim.js
-*.map
-*.d.ts
-*.metadata.json
-/aot
-!make.js
-!bundles/*.js
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
-# JetBrains
-.idea
-.project
-.settings
-.idea/*
-*.iml
-
-# Windows
-Thumbs.db
-Desktop.ini
-
-# Mac
-**/.DS_Store
-.DS_Store
+# dependencies
+/node_modules

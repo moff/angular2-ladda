@@ -1,21 +1,26 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject } from '@angular/core';
-import { LaddaConfig, LaddaConfigArgs, configAttributes } from './ladda-config';
-import * as Ladda from 'ladda';
+import {isPlatformBrowser} from '@angular/common';
+import {Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject, PLATFORM_ID} from '@angular/core';
+import {create as createLadda, LaddaButton} from 'ladda';
+import {LaddaConfig, LaddaConfigArgs, configAttributes} from './ladda-config';
 import {Subscription} from 'rxjs/Subscription';
 
-export type laddaValue = boolean | number | undefined | null | Subscription;
+export type LaddaValue = boolean | number | Subscription | undefined | null;
 
 @Directive({
-    selector: '[ladda]'
+    selector: '[ladda]',
 })
 export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
-    private el: HTMLElement;
-    private _ladda: ILaddaButton;
+    private el: HTMLButtonElement;
+    private ladda: LaddaButton | undefined = undefined;
 
-    @Input('ladda') loading: laddaValue;
-    @Input('disabled') disabled: boolean;
+    @Input('ladda') loading: LaddaValue;
+    @Input() disabled = false;
 
-    constructor(el: ElementRef, @Inject(LaddaConfig) @Optional() config: LaddaConfigArgs) {
+    constructor(
+        el: ElementRef,
+        @Inject(LaddaConfig) @Optional() config: LaddaConfigArgs,
+        @Inject(PLATFORM_ID) private platformId: Object,
+    ) {
         this.el = el.nativeElement;
 
         if (!config) {
@@ -39,61 +44,67 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if (!this._ladda) {
+        if (!this.ladda) {
             return; // needed since ngOnChanges is called before ngOnInit
         }
 
-        if (changes['loading']) {
-            this.updateLadda(changes['loading'].previousValue);
+        if (changes.loading) {
+            this.updateLadda(changes.loading.previousValue);
         }
 
-        if (changes['disabled']) {
+        if (changes.disabled) {
             this.updateDisabled();
         }
     }
 
     ngOnInit() {
-        this._ladda = Ladda.create(this.el);
+        if (!isPlatformBrowser(this.platformId)) {
+            return;
+        }
+
+        this.ladda = createLadda(this.el);
 
         // if the initial loading value isn't false, a timeout of 0 ms
         // is necessary for the calculated spinner size to be correct.
-        setTimeout(() => { this.updateLadda(false); }, 0);
+        setTimeout(() => {this.updateLadda(false);}, 0);
     }
 
     ngOnDestroy() {
-        this._ladda.remove();
+        if (this.ladda) {
+            this.ladda.remove();
+        }
     }
 
-    private updateLadda(previousValue: laddaValue): void {
+    private updateLadda(previousValue: LaddaValue): void {
+        if (!this.ladda) {
+            return;
+        }
+
         let loading: boolean = typeof this.loading === 'number' || this.loading instanceof Subscription || !!this.loading;
         let wasLoading: boolean = (this.loading instanceof Subscription) ? false : typeof previousValue === 'number' || !!previousValue;
 
         if (!loading) {
             if (wasLoading) {
-                this._ladda.stop();
+                this.ladda.stop();
             }
 
             return this.updateDisabled();
         }
 
         if (!wasLoading) {
-            this._ladda.start();
+            this.ladda.start();
 
             if(this.loading instanceof Subscription) {
-                this.loading.add(() => this._ladda.stop());
+                this.loading.add(() => this.ladda.stop());
             }
         }
 
         if (typeof this.loading === 'number') {
-            this._ladda.setProgress(this.loading);
+            this.ladda.setProgress(this.loading);
         }
     }
 
     private updateDisabled(): void {
-        if (this.disabled) {
-            this.el.setAttribute('disabled', '');
-        } else {
-            this.el.removeAttribute('disabled');
-        }
+        this.el.disabled = this.disabled;
     }
 }
