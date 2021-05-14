@@ -22,7 +22,7 @@ Run `npm run lint` and fix any issues before committing changes.
 
 ## Build test app
 
-Run `npm run build`, or `npm run build-prod` for a production build.
+Run `npm run dev` for development, or `npm run build` for a production build.
 
 ## Publishing
 
