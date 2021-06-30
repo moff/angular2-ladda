@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2021-06-30
+### Changed
+- Built with Angular 12.
+- Enabled Ivy library distribution.
+
 ## [3.1.1] - 2020-11-12
 ### Changed
 - Built with Angular 11.
