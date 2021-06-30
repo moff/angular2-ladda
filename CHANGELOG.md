@@ -112,7 +112,8 @@ animations.
 ## [1.0.1] - 2016-09-20
 - Initial stable release
 
-[Unreleased]: https://github.com/moff/angular2-ladda/compare/v3.1.1...HEAD
+[Unreleased]: https://github.com/moff/angular2-ladda/compare/v3.2.0...HEAD
+[3.2.0]: https://github.com/moff/angular2-ladda/compare/v3.1.1...v3.2.0
 [3.1.1]: https://github.com/moff/angular2-ladda/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/moff/angular2-ladda/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/moff/angular2-ladda/compare/v2.0.2...v3.0.0
