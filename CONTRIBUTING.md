@@ -26,4 +26,4 @@ Run `npm run dev` for development, or `npm run build` for a production build.
 
 ## Publishing
 
-After building Ladda, run `npm publish` from the dist/ladda folder.
+After building Ladda, run `npm publish` from the dist/ladda folder (NOT from projects/ladda).
