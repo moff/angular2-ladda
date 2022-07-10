@@ -129,7 +129,6 @@
       }
     }
   },
-  "defaultProject": "ladda-app",
   "cli": {
     "analytics": "75c53465-da41-4fc9-a16b-36324ee0ed5b"
   }

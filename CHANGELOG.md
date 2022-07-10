@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2022-07-10
+### Changed
+- Built with Angular 14.
+
 ## [3.2.2] - 2022-02-22
 ### Changed
 - Built with Angular 13.
@@ -119,7 +123,8 @@ animations.
 ## [1.0.1] - 2016-09-20
 - Initial stable release
 
-[Unreleased]: https://github.com/moff/angular2-ladda/compare/v3.2.2...HEAD
+[Unreleased]: https://github.com/moff/angular2-ladda/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/moff/angular2-ladda/compare/v3.2.2...v4.0.0
 [3.2.2]: https://github.com/moff/angular2-ladda/compare/v3.2.0...v3.2.2
 [3.2.0]: https://github.com/moff/angular2-ladda/compare/v3.1.1...v3.2.0
 [3.1.1]: https://github.com/moff/angular2-ladda/compare/v3.1.0...v3.1.1
