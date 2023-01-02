@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2023-01-02
+### Added
+- Support for Angular 15+.
+
+### Removed
+- Unnecessary `configAttributes` ladda-config export.
+
 ## [4.0.0] - 2022-07-10
 ### Changed
 - Built with Angular 14.
@@ -123,7 +130,8 @@ animations.
 ## [1.0.1] - 2016-09-20
 - Initial stable release
 
-[Unreleased]: https://github.com/moff/angular2-ladda/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/moff/angular2-ladda/compare/v5.0.0...HEAD
+[5.0.0]: https://github.com/moff/angular2-ladda/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/moff/angular2-ladda/compare/v3.2.2...v4.0.0
 [3.2.2]: https://github.com/moff/angular2-ladda/compare/v3.2.0...v3.2.2
 [3.2.0]: https://github.com/moff/angular2-ladda/compare/v3.1.1...v3.2.0

@@ -12,13 +12,6 @@ export abstract class LaddaConfigArgs {
     spinnerLines?: number;
 }
 
-export let configAttributes: {[key: string]: keyof LaddaConfigArgs} = {
-    "data-style": "style",
-    "data-spinner-size": "spinnerSize",
-    "data-spinner-color": "spinnerColor",
-    "data-spinner-lines": "spinnerLines",
-};
-
 @Injectable()
 export class LaddaConfig implements LaddaConfigArgs {
     constructor(config: LaddaConfigArgs = {}) {

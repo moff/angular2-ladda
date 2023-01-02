@@ -1,7 +1,7 @@
 import {isPlatformBrowser} from '@angular/common';
 import {Directive, ElementRef, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, Optional, Inject, PLATFORM_ID} from '@angular/core';
 import {create as createLadda, LaddaButton} from 'ladda';
-import {LaddaConfig, LaddaConfigArgs, configAttributes} from './ladda-config';
+import {LaddaConfig, LaddaConfigArgs} from './ladda-config';
 
 export type LaddaValue = boolean | number | undefined | null;
 
@@ -26,19 +26,20 @@ export class LaddaDirective implements OnInit, OnDestroy, OnChanges {
             return;
         }
 
-        // apply default styles if they aren't overwritten by an attribute
-        for (let attribute in configAttributes) {
-            let configValue = config[configAttributes[attribute]];
+        if (config.style && !this.el.getAttribute('data-style')) {
+            this.el.setAttribute('data-style', config.style);
+        }
 
-            if (!configValue) {
-                continue; // don't waste time reading the attribute
-            }
+        if (config.spinnerSize && !this.el.getAttribute('data-spinner-size')) {
+            this.el.setAttribute('data-spinner-size', config.spinnerSize.toString());
+        }
 
-            if (!this.el.getAttribute(attribute)) {
-                // attribute isn't set - apply the default config value
-                let value = (typeof configValue === "number") ? configValue.toString() : configValue;
-                this.el.setAttribute(attribute, value);
-            }
+        if (config.spinnerColor && !this.el.getAttribute('data-spinner-color')) {
+            this.el.setAttribute('data-spinner-color', config.spinnerColor);
+        }
+
+        if (config.spinnerLines && !this.el.getAttribute('data-spinner-lines')) {
+            this.el.setAttribute('data-spinner-lines', config.spinnerLines.toString());
         }
     }
 

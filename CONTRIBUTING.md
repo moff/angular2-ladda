@@ -2,7 +2,7 @@
 
 ## Lint
 
-Run `npm run lint` to ensure that the source code passes lint checks.
+Run `npm run lint` and fix any issues before committing changes.
 
 ## Build Ladda
 
@@ -15,10 +15,6 @@ Note: Ladda must be built before building the default test app project.
 Run `npm run watch` to watch for changes to the Ladda library.
 Then run `npm start` for a dev server. Navigate to `http://localhost:4200/`.
 The site will automatically reload if you change any of the source files.
-
-## Linting
-
-Run `npm run lint` and fix any issues before committing changes.
 
 ## Build test app
 
