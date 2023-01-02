@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "ng serve",
-    "dev": "ng build",
+    "dev": "ng build --configuration development",
     "build": "ng build --configuration production",
     "watch": "ng build angular2-ladda --watch",
     "build-ladda": "ng build angular2-ladda --configuration production && cpx README.md dist/ladda",

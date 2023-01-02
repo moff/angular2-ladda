@@ -5,7 +5,9 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "noImplicitOverride": true,
     "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -14,18 +16,17 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "es2020",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
     "lib": [
-      "es2018",
+      "ES2022",
       "dom"
     ],
-    "noUnusedLocals": true,
     "paths": {
       "angular2-ladda": [
         "dist/ladda"
       ]
-    },
-    "useDefineForClassFields": false
+    }
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
